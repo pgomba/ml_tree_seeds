@@ -36,4 +36,4 @@ This file provides an overview of the supplementary data and code associated wit
 
         **`07_traits_vs_germination.R`**: \| :hourglass: \<*10 sec. \|* Pairwise comparison between morphological traits and relevant figures. Outputs Fig S1A
 
-        **`08_maternal_level_figures.R`**: \| :hourglass: \<*10 sec. \|* Outputs figures
+        **`08_maternal_level_figures.R`**: \| :hourglass: \<*10 sec. \|* Outputs figures S1B and S2
