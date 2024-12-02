@@ -26,12 +26,14 @@ This file provides an overview of the supplementary data and code associated wit
 
         **`02b_Xgboost.ipynb`**: \| :hourglass: \~5 min. *\|* Finalization of XGBoost analysis. Outputs generated in `Outputs/XGBoost`
 
-        **`03_CNNs.ipynb:`** \|hourglass: \~50-80 min. \| CNN training and testing. Ouptuts generated in `Outputs/CNNs`.
+        **`03_CNNs.ipynb:`** \| :hourglass: \~50-80 min. \| CNN training and testing. Ouptuts generated in `Outputs/CNNs`.
 
-        **`04_models_summary.R`** \|hourglass: \< 10 sec. \| Combines evaluation metrics from XGBoost and CNNs and produce Figure 2.
+        **`04_models_summary.R`** \| :hourglass: \< 10 sec. \| Combines evaluation metrics from XGBoost and CNNs and produce Figure 2.
 
-        **`05_compile_maternal_predictions`**: Creates file `maternal_predictions.csv` in `Outputs` folder. A compilation of all predictions in the testing dataset to be used in later figures.
+        **`05_compile_maternal_predictions`**: \| :hourglass: \< 10 sec. \| Creates file `maternal_predictions.csv` in `Outputs` folder. A compilation of all predictions in the testing dataset to be used in later figures.
 
-        **`06_germination_fractions.R`**: \| :hourglass: \<*10 sec \|* Creates Figure 3 (Germination fractions) and Figure 4 (Collection quality improvements using models).
+        **`06_germination_fractions.R`**: \| :hourglass: \<*10 sec. \|* Creates Figure 3 (Germination fractions) and Figure 4 (Collection quality improvements using models).
 
         **`07_traits_vs_germination.R`**: \| :hourglass: \<*10 sec. \|* Pairwise comparison between morphological traits and relevant figures. Outputs Fig S1A
+
+        **`08_maternal_level_figures.R`**: \| :hourglass: \<*10 sec. \|* Outputs figures

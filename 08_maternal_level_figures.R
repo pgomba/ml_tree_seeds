@@ -3,11 +3,11 @@ library(tidyr)
 library(ggfx)
 library(patchwork)
 
-df = read.csv("maternal_predict.csv") 
+df = read.csv("outputs/maternal_predict.csv") 
 df$original_Tree_N <- df$Tree_N
 df$Tree_N <- ifelse(df$Species == "Betula_pendula", df$Tree_N - 14, df$Tree_N)
 
-data = read.csv("ml_paper_seeds_all.csv")
+data = read.csv("data/ml_paper_seeds_all.csv")
 data$original_Tree_N <- data$Tree_N
 data$Tree_N <- ifelse(data$Species == "Betula_pendula", data$Tree_N - 14, data$Tree_N)
 
@@ -67,8 +67,7 @@ for (i in seq_along(species_list)) {
 
 (plot = plots[[1]] | plots[[2]] | plots[[3]] | plots[[4]] | plots[[5]])
 
-setwd("C:/Users/pg05wk/OneDrive - The Royal Botanic Gardens, Kew/TPIF Project - Seed Traits for Tree Production/Phase 2/Pablo/ML_seed_paper/Final_folder/Outputs/Figures")
-ggsave("maternal_line_traits.pdf", plot, width = 27, height = 31, units = "cm")
+ggsave("outputs/maternal_line_traits.pdf", plot, width = 27, height = 31, units = "cm")
 
 
 
@@ -86,10 +85,10 @@ germ = data %>%
   ungroup()
 
 df_long <- df %>%
-  rename(XGB_all=all_pred,XGB_Colour=colour_pred,XGB_Xray=xray_pred,CNN_Colour=cnn_colour_pred,CNN_Xray=cnn_xray_pred)%>%
+  rename(XGB_Colour=XGB_colour,XGB_Xray=XGB_xray,CNN_Colour=cnn_colour_pred,CNN_Xray=cnn_xray_pred)%>%
   pivot_longer(cols = c(XGB_all, XGB_Colour, XGB_Xray, CNN_Colour, CNN_Xray),
                names_to = "type",values_to = "pred") %>%
-  mutate(germ=all_germ)%>% #Any germ column does the work
+  mutate(germ=Bin_germ)%>% #Any germ column does the work
   
   mutate(type = factor(type, levels = c("XGB_all", "XGB_Colour", "XGB_Xray", "CNN_Colour", "CNN_Xray")))%>%
   select(Species, Tree_N,type,pred,germ)
@@ -195,8 +194,7 @@ for (i in seq_along(species_list)) {
 
 (plot = plots[[1]]/plots[[2]]/plots[[3]]/plots[[4]]/plots[[5]])
 
-setwd("C:/Users/rda30wk/OneDrive - The Royal Botanic Gardens, Kew/TPIF Project - Seed Traits for Tree Production/Phase 2/Pablo/ML_seed_paper/Final_folder/Outputs/Figures")
-ggsave("maternal_metrics.png", plot, width = 11.69, height = 8.27, units = "in")
+ggsave("outputs/maternal_metrics.png", plot, width = 11.69, height = 8.27, units = "in")
 
 
 ## Reduced monster
@@ -260,24 +258,5 @@ for (i in seq_along(species_list)) {
 
 (plot = plots[[1]]|plots[[2]]|plots[[3]]|plots[[4]]|plots[[5]])
 
-setwd("C:/Users/rda30wk/OneDrive - The Royal Botanic Gardens, Kew/TPIF Project - Seed Traits for Tree Production/Phase 2/Pablo/ML_seed_paper/Final_folder/Outputs/Figures")
-ggsave("maternal_metrics_reduced.png", plot, width = 13, height = 4.5, units = "in")
+ggsave("outputs/maternal_metrics_reduced.png", plot, width = 13, height = 4.5, units = "in")
 
-
-# ggplot() +
-#   facet_grid(.~type) +
-#   geom_text(data = df_meas, aes(x = factor(Tree_N), y = factor(name), label = round(value, 2), vjust = ifelse(name == "fraction_of_seeds", 0.5, 2.5)), size = 2.5) +
-#   geom_point(data = subset(df_meas, df_meas$name != "fraction_of_seeds"), aes(x = factor(Tree_N), y = factor(name), size = value, colour = value)) +
-#   
-#   labs(x = "Tree ID", y = "") +
-#   scale_colour_viridis_c(name = "Measure", direction = 1, option = "D", end = 0.9) +
-#   theme_minimal()+
-#   theme(legend.position = "none")
-# 
-# # 3 x 5.83
-
-
-### df_agg test
-
-anova<-aov(recall~Species+fraction_of_seeds+type, data=df_agg)
-summary(anova)
