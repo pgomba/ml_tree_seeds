@@ -1,0 +1,2 @@
+loss,binary_accuracy,precision,auc,recall,true_negatives,false_positives,false_negatives,true_positives,f1
+0.2605024576187134,0.93034827709198,0.93034827709198,0.5584415793418884,1.0,0.0,14.0,0.0,187.0,0.9639175356413152
