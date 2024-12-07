@@ -252,4 +252,4 @@ b<-ggplot(right_graph_set,aes(y=name,x=prop, fill=Germination))+
 b
 a+b+ plot_layout(guides = "collect")& theme(legend.position = "bottom")
 
-ggsave(path=save_path,"Fig4_models_vs_germination_fractions_0001.png",dpi = "retina",height = 13,width = 8.3)
+ggsave(path=save_path,"Fig4_models_vs_germination_fractions.png",dpi = "retina",height = 13,width = 8.3)

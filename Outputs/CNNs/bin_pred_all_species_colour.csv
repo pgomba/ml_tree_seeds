@@ -51,8 +51,8 @@ data/individual_seed_images/all_species\colour\testing\0\Alnus_glutinosa_976.png
 data/individual_seed_images/all_species\colour\testing\0\Betula_pendula_153.png,1,0
 data/individual_seed_images/all_species\colour\testing\0\Betula_pendula_159.png,1,0
 data/individual_seed_images/all_species\colour\testing\0\Betula_pendula_183.png,1,0
-data/individual_seed_images/all_species\colour\testing\0\Betula_pendula_20.png,0,0
-data/individual_seed_images/all_species\colour\testing\0\Betula_pendula_21.png,0,0
+data/individual_seed_images/all_species\colour\testing\0\Betula_pendula_20.png,1,0
+data/individual_seed_images/all_species\colour\testing\0\Betula_pendula_21.png,1,0
 data/individual_seed_images/all_species\colour\testing\0\Betula_pendula_283.png,1,0
 data/individual_seed_images/all_species\colour\testing\0\Betula_pendula_289.png,1,0
 data/individual_seed_images/all_species\colour\testing\0\Betula_pendula_292.png,1,0
@@ -126,7 +126,7 @@ data/individual_seed_images/all_species\colour\testing\0\Betula_pendula_992.png,
 data/individual_seed_images/all_species\colour\testing\0\Betula_pubescens_11.png,1,0
 data/individual_seed_images/all_species\colour\testing\0\Betula_pubescens_126.png,1,0
 data/individual_seed_images/all_species\colour\testing\0\Betula_pubescens_160.png,1,0
-data/individual_seed_images/all_species\colour\testing\0\Betula_pubescens_178.png,0,0
+data/individual_seed_images/all_species\colour\testing\0\Betula_pubescens_178.png,1,0
 data/individual_seed_images/all_species\colour\testing\0\Betula_pubescens_199.png,1,0
 data/individual_seed_images/all_species\colour\testing\0\Betula_pubescens_204.png,1,0
 data/individual_seed_images/all_species\colour\testing\0\Betula_pubescens_218.png,1,0
@@ -169,7 +169,7 @@ data/individual_seed_images/all_species\colour\testing\0\Betula_pubescens_554.pn
 data/individual_seed_images/all_species\colour\testing\0\Betula_pubescens_559.png,1,0
 data/individual_seed_images/all_species\colour\testing\0\Betula_pubescens_567.png,1,0
 data/individual_seed_images/all_species\colour\testing\0\Betula_pubescens_620.png,1,0
-data/individual_seed_images/all_species\colour\testing\0\Betula_pubescens_624.png,0,0
+data/individual_seed_images/all_species\colour\testing\0\Betula_pubescens_624.png,1,0
 data/individual_seed_images/all_species\colour\testing\0\Betula_pubescens_647.png,1,0
 data/individual_seed_images/all_species\colour\testing\0\Betula_pubescens_675.png,1,0
 data/individual_seed_images/all_species\colour\testing\0\Betula_pubescens_676.png,1,0
@@ -190,7 +190,7 @@ data/individual_seed_images/all_species\colour\testing\0\Betula_pubescens_843.pn
 data/individual_seed_images/all_species\colour\testing\0\Betula_pubescens_86.png,1,0
 data/individual_seed_images/all_species\colour\testing\0\Betula_pubescens_879.png,1,0
 data/individual_seed_images/all_species\colour\testing\0\Betula_pubescens_892.png,1,0
-data/individual_seed_images/all_species\colour\testing\0\Betula_pubescens_899.png,1,0
+data/individual_seed_images/all_species\colour\testing\0\Betula_pubescens_899.png,0,0
 data/individual_seed_images/all_species\colour\testing\0\Betula_pubescens_912.png,1,0
 data/individual_seed_images/all_species\colour\testing\0\Betula_pubescens_914.png,1,0
 data/individual_seed_images/all_species\colour\testing\0\Betula_pubescens_915.png,1,0
@@ -258,7 +258,7 @@ data/individual_seed_images/all_species\colour\testing\0\Pinus_sylvestris_846.pn
 data/individual_seed_images/all_species\colour\testing\0\Pinus_sylvestris_849.png,1,0
 data/individual_seed_images/all_species\colour\testing\0\Pinus_sylvestris_9.png,1,0
 data/individual_seed_images/all_species\colour\testing\0\Pinus_sylvestris_907.png,1,0
-data/individual_seed_images/all_species\colour\testing\0\Pinus_sylvestris_908.png,1,0
+data/individual_seed_images/all_species\colour\testing\0\Pinus_sylvestris_908.png,0,0
 data/individual_seed_images/all_species\colour\testing\0\Pinus_sylvestris_939.png,1,0
 data/individual_seed_images/all_species\colour\testing\0\Pinus_sylvestris_969.png,1,0
 data/individual_seed_images/all_species\colour\testing\0\Sorbus_aucuparia_105.png,1,0
@@ -664,7 +664,7 @@ data/individual_seed_images/all_species\colour\testing\1\Betula_pubescens_821.pn
 data/individual_seed_images/all_species\colour\testing\1\Betula_pubescens_826.png,1,1
 data/individual_seed_images/all_species\colour\testing\1\Betula_pubescens_844.png,1,1
 data/individual_seed_images/all_species\colour\testing\1\Betula_pubescens_847.png,1,1
-data/individual_seed_images/all_species\colour\testing\1\Betula_pubescens_855.png,1,1
+data/individual_seed_images/all_species\colour\testing\1\Betula_pubescens_855.png,0,1
 data/individual_seed_images/all_species\colour\testing\1\Betula_pubescens_869.png,1,1
 data/individual_seed_images/all_species\colour\testing\1\Betula_pubescens_87.png,1,1
 data/individual_seed_images/all_species\colour\testing\1\Betula_pubescens_871.png,1,1
@@ -701,7 +701,7 @@ data/individual_seed_images/all_species\colour\testing\1\Pinus_sylvestris_203.pn
 data/individual_seed_images/all_species\colour\testing\1\Pinus_sylvestris_207.png,1,1
 data/individual_seed_images/all_species\colour\testing\1\Pinus_sylvestris_208.png,1,1
 data/individual_seed_images/all_species\colour\testing\1\Pinus_sylvestris_210.png,1,1
-data/individual_seed_images/all_species\colour\testing\1\Pinus_sylvestris_254.png,1,1
+data/individual_seed_images/all_species\colour\testing\1\Pinus_sylvestris_254.png,0,1
 data/individual_seed_images/all_species\colour\testing\1\Pinus_sylvestris_258.png,1,1
 data/individual_seed_images/all_species\colour\testing\1\Pinus_sylvestris_275.png,1,1
 data/individual_seed_images/all_species\colour\testing\1\Pinus_sylvestris_277.png,1,1
@@ -781,7 +781,7 @@ data/individual_seed_images/all_species\colour\testing\1\Pinus_sylvestris_756.pn
 data/individual_seed_images/all_species\colour\testing\1\Pinus_sylvestris_76.png,1,1
 data/individual_seed_images/all_species\colour\testing\1\Pinus_sylvestris_781.png,1,1
 data/individual_seed_images/all_species\colour\testing\1\Pinus_sylvestris_783.png,1,1
-data/individual_seed_images/all_species\colour\testing\1\Pinus_sylvestris_786.png,1,1
+data/individual_seed_images/all_species\colour\testing\1\Pinus_sylvestris_786.png,0,1
 data/individual_seed_images/all_species\colour\testing\1\Pinus_sylvestris_793.png,1,1
 data/individual_seed_images/all_species\colour\testing\1\Pinus_sylvestris_798.png,1,1
 data/individual_seed_images/all_species\colour\testing\1\Pinus_sylvestris_807.png,1,1
@@ -793,7 +793,7 @@ data/individual_seed_images/all_species\colour\testing\1\Pinus_sylvestris_86.png
 data/individual_seed_images/all_species\colour\testing\1\Pinus_sylvestris_867.png,1,1
 data/individual_seed_images/all_species\colour\testing\1\Pinus_sylvestris_873.png,1,1
 data/individual_seed_images/all_species\colour\testing\1\Pinus_sylvestris_876.png,1,1
-data/individual_seed_images/all_species\colour\testing\1\Pinus_sylvestris_877.png,0,1
+data/individual_seed_images/all_species\colour\testing\1\Pinus_sylvestris_877.png,1,1
 data/individual_seed_images/all_species\colour\testing\1\Pinus_sylvestris_881.png,1,1
 data/individual_seed_images/all_species\colour\testing\1\Pinus_sylvestris_900.png,1,1
 data/individual_seed_images/all_species\colour\testing\1\Pinus_sylvestris_902.png,1,1
