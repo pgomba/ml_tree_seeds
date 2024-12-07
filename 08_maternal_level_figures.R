@@ -127,11 +127,6 @@ df_agg <- df_long %>%
 
 
 
-# tree_order <- df_agg %>%
-#   arrange(fraction_of_seeds) %>%
-#   pull(Tree_N)
-# tree_order = unique(tree_order)
-
 df_meas = df_agg %>%
   pivot_longer(cols = c(germination_rate, fraction_of_seeds, accuracy, specificity, precision, recall, f1))
 
@@ -194,10 +189,10 @@ for (i in seq_along(species_list)) {
 
 (plot = plots[[1]]/plots[[2]]/plots[[3]]/plots[[4]]/plots[[5]])
 
-ggsave("outputs/maternal_metrics.png", plot, width = 11.69, height = 8.27, units = "in")
+#ggsave("outputs/maternal_metrics.png", plot, width = 11.69, height = 8.27, units = "in")
 
 
-## Reduced monster
+## Reduced graph
 
 
 df_meas = df_agg %>%
