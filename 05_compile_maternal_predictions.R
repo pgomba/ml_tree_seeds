@@ -30,33 +30,55 @@ cnn_predict<-data.frame()
 
 for (i in species) {
   
-  cnn_colour<-read_csv(paste0("Outputs/CNNs/bin_pred_",i,"_colour.csv"))%>% 
-    select(file_path, prediction)%>%
-    mutate(seed_n=as.numeric(str_extract(file_path, "\\d+(?=.png)")))%>%
-    arrange(seed_n)%>%
-    select(prediction)%>%
-    rename(cnn_colour_pred=1)
+  if (i!="all_species") {
+    
+    cnn_colour<-read_csv(paste0("Outputs/CNNs/bin_pred_",i,"_colour.csv"))%>% 
+      select(file_path, prediction)%>%
+      mutate(seed_n=as.numeric(str_extract(file_path, "\\d+(?=.png)")))%>%
+      arrange(seed_n)%>%
+      select(prediction)%>%
+      rename(cnn_colour_pred=1)
+    
+    
+    cnn_xray<-read_csv(paste0("Outputs/CNNs/bin_pred_",i,"_xray.csv"))%>% 
+      select(file_path, prediction)%>%
+      mutate(seed_n=as.numeric(str_extract(file_path, "\\d+(?=.png)")))%>%
+      arrange(seed_n)%>%
+      select(prediction)%>%
+      rename(cnn_xray_pred=1)
+    
+  }else{
+    
+    cnn_colour<-read_csv(paste0("Outputs/CNNs/bin_pred_",i,"_colour.csv"))%>% 
+      select(file_path, prediction)%>%
+      mutate(sp=str_extract(file_path, "(?<=\\\\)[A-Za-z_]+(?=_)"),
+             seed_n=as.numeric(str_extract(file_path, "\\d+(?=.png)")))%>%
+      arrange(sp,seed_n)%>%
+      select(prediction)%>%
+      rename(cnn_colour_pred=1)
+    
+    
+    cnn_xray<-read_csv(paste0("Outputs/CNNs/bin_pred_",i,"_xray.csv"))%>% 
+      select(file_path, prediction,real_class)%>%
+      mutate(sp=str_extract(file_path, "(?<=\\\\)[A-Za-z_]+(?=_)"),
+             seed_n=as.numeric(str_extract(file_path, "\\d+(?=.png)")))%>%
+      arrange(sp,seed_n)%>%
+      select(prediction)%>%
+      rename(cnn_xray_pred=1)
+    
+  }
   
-
-  cnn_xray<-read_csv(paste0("Outputs/CNNs/bin_pred_",i,"_xray.csv"))%>% 
-    select(file_path, prediction)%>%
-    mutate(seed_n=as.numeric(str_extract(file_path, "\\d+(?=.png)")))%>%
-    arrange(seed_n)%>%
-    select(prediction)%>%
-    rename(cnn_xray_pred=1)
   
   temp_df<-cbind(cnn_colour,cnn_xray)
   temp_df$Species<-i
   
   cnn_predict<-bind_rows(cnn_predict,temp_df)%>%
     select(-Species)
-  
-  
 }
 
-maternal_predict<-cbind(germination,predictions_names_all_features,predictions_names_colour_features,predictions_names_xray_features,
-                        cnn_predict)%>%
-  filter(grepl("G|M|V|E",Germination))
+
+maternal_predict<-cbind(germination,predictions_names_all_features,predictions_names_colour_features,predictions_names_xray_features,cnn_predict)
+
 
 
 write.csv(maternal_predict,"outputs/maternal_predict.csv",row.names = F)

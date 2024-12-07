@@ -71,8 +71,6 @@ xgb_boost_eval<-read.csv("outputs/XGBoost/evaluation_results.csv")%>%
 
 all_models_eval<-bind_rows(cnn_evaluation_compilation,xgb_boost_eval)
 
-write.csv(all_models_eval,file.path(dirname(dirname(getwd())),"outputs/05_CNN/all_models_eval.csv"),row.names = F)
-          
 
 ### graph test #Complete heatmap
 
@@ -150,7 +148,8 @@ ggplot(rh,aes(x=Species,y=fct_rev(new_model),fill=value))+
         legend.position = "right",
         plot.background = element_rect(colour="white"),
         axis.text.y=element_markdown(size=14),
-        strip.text.x = element_text(size=16))+
+        strip.text.x = element_text(size=16),
+        panel.grid.major = element_blank())+
   labs(y="",fill="",x="")
   
 

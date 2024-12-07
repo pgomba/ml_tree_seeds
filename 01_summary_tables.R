@@ -93,13 +93,6 @@ cnn_parameters<-data.frame(Hyperparameters=c("learning_rate","n_estimators","sub
   cols_align(
     align = c("center"),
     columns = everything())
-  tab_style(
-    style = list(cell_text(style = "italic")
-    ),
-    locations = cells_body(columns = Species,
-                           
-    )
-  )
 
 gtsave(cnn_parameters,path = save_path,"T_S3_XGBoost_gs_parameters.html")
 
