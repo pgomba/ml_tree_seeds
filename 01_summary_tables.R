@@ -2,6 +2,8 @@ library(tidyverse)
 library(gt)
 library(gtExtras)
 
+
+
 dir.create(file.path(getwd(),"Outputs"))
 save_path<-file.path(getwd(),"Outputs")
 data_path<-file.path(getwd(),"data")
@@ -132,14 +134,14 @@ summary_table<-left_join(summary_table_p1,summary_table_p2)%>%
 
 tree_proportion<-list(tree_vector_Alnus_glutinosa,tree_vector_Betula_pendula,tree_vector_Betula_pubescens,tree_vector_Pinus_sylvestris,tree_vector_Sorbus_aucuparia)
 
-summary_table$`Seed contribution by maternal line`<-tree_proportion
+summary_table$`Seed contribution by tree`<-tree_proportion
 
 summary_table$Provenance <-c("Bedfordshire","Suffolk","Hampshire","Highlands","South Yorkshire")
 
 summary_table<-summary_table%>%
-  rename(`Seed N.`=`Number of Seeds`,
-         `Maternal lines`=`Number of Trees`)%>%
-  relocate(Species, Provenance,`Seed N.`,`Maternal lines`)
+  rename(`Seed Number`=`Number of Seeds`,
+         `Mother trees`=`Number of Trees`)%>%
+  relocate(Species, Provenance,`Seed Number`,`Mother trees`)
 
 table1<-summary_table %>%
   gt() %>%
@@ -153,7 +155,55 @@ table1<-summary_table %>%
     locations = cells_body(columns = Species,
                            
     ))%>%
-  gt_plt_dist(`Seed contribution by maternal line`, type = "histogram",bw = 1,fill_color="darkgreen")
+  gt_plt_dist(`Seed contribution by tree`, type = "histogram",bw = 1,fill_color="darkgreen")%>%
+  cols_width(
+    Species ~ px(170),
+    Provenance ~ px(120),
+    `Seed contribution by tree`~ px(160))
 table1
 
-gtsave(table1,path = save_path,"Table1_Collections_info.html")
+gtsave_extra(table1,path = save_path,"Table1_Collections_info.png",vwidth=550)
+
+
+#########################################
+#Table S4. Train_Test Germ_NoGerm split #
+#########################################
+
+df <- tibble(
+  Species = c("Alnus glutinosa", "Betula pubescens", "Betula pendula","Pinus sylvestris", "Sorbus aucuparia","all species (Total)"),
+  Set = c("Train Test", "Train Test", "Train Test", "Train Test", "Train Test", "Train Test"),
+  Yes = c("630 152", "534 130", "492 123","516 136", "743 187","2915 728"),
+  No = c("173 49", "277 75", "300 76","279 62", "58 14","1087 276")
+)
+
+
+italic_species <- c(
+  "Alnus glutinosa", "Betula pendula", 
+  "Betula pubescens", "Pinus sylvestris", 
+  "Sorbus aucuparia"
+)
+
+
+
+table<-  gt(df) |> 
+  cols_width(
+    Species ~ px(150),
+    Set ~ px(50),
+    Yes ~ px(50),
+    No ~px(40)  ) |> 
+  tab_options(column_labels.hidden = F,
+              table.width = px(300)) |> 
+  
+  tab_spanner(
+    label = "Germinated",
+    columns = c(Yes, No)
+  )%>%
+  tab_style(
+    style = cell_text(style="italic"),
+    locations = cells_body(columns = "Species", rows = Species %in% italic_species)
+  )%>%
+  tab_footnote(
+    footnote = "Table S4. Germinated and non-germinated seed composition used to train and evaluate the different models"
+  )
+
+gtsave(table,"Outputs/TableS4_germ_eval_test.html")  
