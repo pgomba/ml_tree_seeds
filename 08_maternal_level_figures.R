@@ -1,4 +1,4 @@
-library(ggplot2)
+library(tidyverse)
 library(tidyr)
 library(ggfx)
 library(patchwork)
@@ -52,7 +52,7 @@ for (i in seq_along(species_list)) {
     geom_hline(data = dp2, aes(yintercept = mean_value, colour = factor(Bin_germ)), linetype = "dashed", linewidth = 0.3),
     x_offset = 0, y_offset = 0, sigma = 0.05, color = "grey30"
   ) +
-  labs(x = "Maternal line", y = "", colour = "Germination Outcome") +
+  labs(x = "Mother tree", y = "", colour = "Germination Outcome") +
   scale_fill_viridis_d(name = "Germination outcome", direction = -1, option = "H", begin = 0.25, end = 0.85) +
   theme_minimal(base_size = 7) +
   theme(legend.position = if (i == 4) "top" else "none",
@@ -67,11 +67,11 @@ for (i in seq_along(species_list)) {
 
 (plot = plots[[1]] | plots[[2]] | plots[[3]] | plots[[4]] | plots[[5]])
 
-ggsave("outputs/maternal_line_traits.pdf", plot, width = 27, height = 31, units = "cm")
+ggsave("outputs/mother_tree_traits.pdf", plot, width = 27, height = 31, units = "cm")
 
 
 
-## MODEL METRICS BY MATERNAL LINE FIGURE
+## MODEL METRICS BY MOTHER TREE FIGURE
 
 # get number of seeds and germination percentage in the train set
 
@@ -170,7 +170,7 @@ for (i in seq_along(species_list)) {
     geom_point(data = subset(dp, dp$name != "fraction of seeds"), aes(x = factor(Tree_N), y = factor(name), size = value, colour = value)) +
     scale_size(range = c(0.1, 3.3)) +
     facet_grid(Species ~ type, labeller = labeller(Species = label_value)) +
-    labs(x = ifelse(i == total_species, "Maternal lines", ""), y = "") +
+    labs(x = ifelse(i == total_species, "Mother tree", ""), y = "") +
     scale_colour_viridis_c(name = "Measure", direction = 1, option = "D", end = 0.9) +
     theme_minimal(base_size=8) +
     theme(legend.position = "none",
@@ -189,7 +189,7 @@ for (i in seq_along(species_list)) {
 
 (plot = plots[[1]]/plots[[2]]/plots[[3]]/plots[[4]]/plots[[5]])
 
-#ggsave("outputs/maternal_metrics.png", plot, width = 11.69, height = 8.27, units = "in")
+#ggsave("outputs/mother_tree_metrics.png", plot, width = 11.69, height = 8.27, units = "in")
 
 
 ## Reduced graph
@@ -234,7 +234,7 @@ for (i in seq_along(species_list)) {
     geom_point(data = subset(dp, dp$name != "fraction of seeds"), aes(x = factor(Tree_N), y = factor(name), size = value, colour = value)) +
     scale_size(range = c(0.1, 3.3)) +
     facet_grid(type ~ Species, labeller = labeller(Species = label_value), scale = "free_y") +
-    labs(x = ifelse(i == total_species, "Maternal lines", ""), y = "") +
+    labs(x = ifelse(i == total_species, "Mother tree", ""), y = "") +
     scale_colour_viridis_c(name = "Measure", direction = 1, option = "D", end = 0.9) +
     theme_minimal(base_size=8) +
     theme(legend.position = "none",
@@ -253,5 +253,5 @@ for (i in seq_along(species_list)) {
 
 (plot = plots[[1]]|plots[[2]]|plots[[3]]|plots[[4]]|plots[[5]])
 
-ggsave("outputs/maternal_metrics_reduced.png", plot, width = 13, height = 4.5, units = "in")
+ggsave("outputs/mother_tree_metrics_reduced.png", plot, width = 13, height = 4.5, units = "in")
 
