@@ -215,7 +215,8 @@ right_graph_set<-predset_graph%>%filter(value=="Discard")%>%
   add_row(Species="P. sylvestris",Germination="Empty",name="Unsorted",prop=0)%>%
   add_row(Species="B. pendula",Germination="Germinated",name="**CNN** | <span style='color:#FFB400;'>colour</span>",prop=0)%>%
   add_row(Species="S. aucuparia",Germination="Germinated",name="**CNN** | <span style='color:#007A87;'>X-ray</span>",prop=0)%>%
-  add_row(Species="S. aucuparia",Germination="Germinated",name="**CNN** | <span style='color:#FFB400;'>colour</span>",prop=0)
+  add_row(Species="S. aucuparia",Germination="Germinated",name="**CNN** | <span style='color:#FFB400;'>colour</span>",prop=0)%>%
+  add_row(Species="all species", Germination="Germinated",name="Unsorted",prop=0)
 
 right_graph_set$Germination<-factor(right_graph_set$Germination,levels = c("Empty","Mouldy","Viable","Germinated"))
 
