@@ -1,0 +1,4 @@
+,binary_accuracy,precision,specificity,recall,f1
+Mean,0.81,0.8,0.47,0.97,0.88
+Lower,0.76,0.74,0.35,0.94,0.83
+Upper,0.87,0.86,0.61,0.99,0.91
