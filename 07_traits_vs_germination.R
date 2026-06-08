@@ -81,23 +81,29 @@ for (j in species) {
     no_germinated<-data_selection%>%
       filter(Bin_germ==0)%>%
       .[[1]]
-
-    test<-wilcox.test(germinated,no_germinated,p.adjust.method = "holm",paired = F,alternative = "two.sided",conf.level = .99)
     
-    p_value<-test$p.value
+    # Note: this doesn't make sense, you can't apply to holm correction to a single p value calculation.
+    # test<-wilcox.test(germinated,no_germinated,p.adjust.method = "holm",paired = F,alternative = "two.sided",conf.level = .99)
+    test_no_correction = wilcox.test(germinated,no_germinated,paired = F,alternative = "two.sided",conf.level = .99)
+    p_value = test_no_correction$p.value
+    wilcox_stat = test_no_correction$statistic
     
-    temp_df<-data.frame(Species=j,Trait=i,p_value)
+    temp_df<-data.frame(Species=j,Trait=i,p_value, wilcox_stat)
     pairwise_comparison<-bind_rows(pairwise_comparison,temp_df)
     
     
   }
 }
 
+p_adjusted <- p.adjust(pairwise_comparison$p_value, method = "holm")
+
+pairwise_comparison$p_value_adjusted = p_adjusted
+
 ## Add label "*" when significant (p<0.05) difference
 pairwise_comparison<-pairwise_comparison%>%
-  mutate(label=ifelse(p_value<0.05,"*",""),
+  mutate(label=ifelse(p_value_adjusted<0.05,"*",""),
          Species=gsub("_"," ",Species))
-
+write.csv(pairwise_comparison[order(pairwise_comparison$p_value), ], file.path(save_path, 'trait_germ_nongerm_pvalues.csv'))
 
 ####################################################
 ## Build Pairwise Figure                          ##
