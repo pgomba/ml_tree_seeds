@@ -97,13 +97,14 @@ for (j in species) {
 
 p_adjusted <- p.adjust(pairwise_comparison$p_value, method = "holm")
 
-pairwise_comparison$p_value_adjusted = p_adjusted
+pairwise_comparison$holm_adjusted_p_value = p_adjusted
 
 ## Add label "*" when significant (p<0.05) difference
 pairwise_comparison<-pairwise_comparison%>%
-  mutate(label=ifelse(p_value_adjusted<0.05,"*",""),
+  mutate(label=ifelse(holm_adjusted_p_value<0.05,"*",""),
          Species=gsub("_"," ",Species))
-write.csv(pairwise_comparison[order(pairwise_comparison$p_value), ], file.path(save_path, 'trait_germ_nongerm_pvalues.csv'))
+write.csv(pairwise_comparison, file.path(save_path, 'trait_germ_nongerm_pvalues.csv'),row.names = FALSE)
+
 
 ####################################################
 ## Build Pairwise Figure                          ##
