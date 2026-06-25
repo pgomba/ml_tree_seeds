@@ -1,0 +1,2 @@
+"n_obs","n_trees","var_tree","sd_tree","icc_adjusted","icc_unadjusted","R2_marginal","R2_conditional","R2_mother_tree","LRT_chi2","LRT_p","DHARMa_disp","DHARMa_p"
+5006,73,0.6169,0.7854,0.158,0.14,0.116,0.255,0.14,361.44,0.0000000000000000000000000000000000000000000000000000000000000000000000000000000137,1.022,0.584
