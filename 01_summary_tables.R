@@ -111,7 +111,24 @@ summary_table_p2<-ml_paper_seeds%>%
   group_by(Species)%>%
   summarise(n_trees=n())
 
+
+
 species<-c("Alnus_glutinosa","Betula_pendula","Betula_pubescens","Pinus_sylvestris","Sorbus_aucuparia")
+
+
+summary_table_p3 <- ml_paper_seeds %>%
+  count(Species, Tree_N, name = "seed_n") %>%   # Count seeds per tree
+  group_by(Species) %>%
+  summarise(
+    avg_seed_n = mean(seed_n),
+    sd_seed_n = sd(seed_n),
+    n_trees = n(),
+    .groups = "drop"
+  )%>%
+  mutate(seed_tree_avg=paste0(round(avg_seed_n,1),"±",round(sd_seed_n,1)))%>%
+  select(Species, seed_tree_avg)
+
+
 
 for (i in species) {
   
@@ -127,6 +144,7 @@ for (i in species) {
 }
 
 summary_table<-left_join(summary_table_p1,summary_table_p2)%>%
+  left_join(.,summary_table_p3)%>%
   mutate(Species=gsub("_"," ",Species))%>%
   rename(`Number of Seeds`=n_seeds,
          `Number of Trees`=n_trees)%>%
@@ -140,8 +158,9 @@ summary_table$Provenance <-c("Bedfordshire","Suffolk","Hampshire","Highlands","S
 
 summary_table<-summary_table%>%
   rename(`Seed Number`=`Number of Seeds`,
-         `Mother trees`=`Number of Trees`)%>%
-  relocate(Species, Provenance,`Seed Number`,`Mother trees`)
+         `Mother trees`=`Number of Trees`,
+         `Average seed contribution per tree`=seed_tree_avg)%>%
+  relocate(Species, Provenance,`Seed Number`,`Mother trees`,`Seed contribution by tree`,`Average seed contribution per tree`)
 
 table1<-summary_table %>%
   gt() %>%
@@ -162,7 +181,7 @@ table1<-summary_table %>%
     `Seed contribution by tree`~ px(160))
 table1
 
-gtsave_extra(table1,path = save_path,"Table1_Collections_info.png",vwidth=550)
+gtsave_extra(table1,path = save_path,"Table1_Collections_info.png",vwidth=850)
 
 
 #########################################
