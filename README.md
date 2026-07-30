@@ -54,5 +54,8 @@ approximate time to run each script is provided next to the corresponding file n
 
        **`08_mother_tree_level_figures.R`**: \| :hourglass: \<*10 sec. \|* Outputs figures S1B and S2
 
-       **`bootstrap_CI_for_metrics.py`**: \| :hourglass: \<*60 sec. \|* Calculates bootstrap confidence intervals for the reported metrics. Output in
-       `Outputs/CNNs/CIs` and `Outputs/XGBoost/CIs`. 
+       **`bootstrap_CI_for_metrics.py`**: \| :hourglass: \<*60 sec. \|* Calculates bootstrap confidence intervals for the reported metrics on the test set. Output in
+       `Outputs/CNNs/CIs` and `Outputs/XGBoost/CIs`.
+        
+       **`confusion_matrices_for_final_evaluation.py`**: \| :hourglass: \<*60 sec. \|* Outputs confusion matrices for model performance on test set. Output in
+       `Outputs/CNNs/confusion_matrices` and `Outputs/XGBoost/confusion_matrices`.
